@@ -1,0 +1,26 @@
+$site-half: $site-width / 2 - 7;
+
+
+.section {
+	@extend %clearfix;
+	clear: both;
+	padding-left: 1rem;
+	padding-right: 1rem;
+
+	@include media-query(xs) {
+		padding-left: 2rem;
+		padding-right: 2rem;
+	}
+	@include media-query(sm) {
+		padding-left: 3rem;
+		padding-right: 3rem;
+	}
+	@include media-query(lg) {
+		padding-left: 7rem;
+		padding-right: 7rem;
+	}
+	@include media-query(xl) {
+		padding-left: calc(50% - #{$site-half});
+		padding-right: calc(50% - #{$site-half});
+	}
+}

@@ -1,0 +1,38 @@
+
+
+
+$breakpoints: (
+	xs: 28,
+	sm: 40,
+	md: 54,
+	lg: 70,
+	xl: 80
+) !default;
+
+
+
+
+
+// Make the breakpoints
+@mixin media-query($breakpoint, $direction: 'min') {
+
+	$value: map-get($breakpoints, $breakpoint);
+
+	@if $value != null {
+		@if $direction == 'min' {
+			@media (min-width: #{$value}rem) {
+				@content;
+			}
+		} @elseif $direction == 'max' {
+			@media (max-width: #{$value}rem) {
+				@content;
+			}
+		} @else {
+			@warn "Unfortunately, the value #{$direction} is not valid. ";
+		}
+	} @else {
+		@warn "Unfortunately, no value could be retrieved from #{$breakpoint}. "
+		+ "Please make sure it is defined in `$breakpoints` map.";
+	}
+}
+

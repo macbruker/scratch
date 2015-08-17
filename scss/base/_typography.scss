@@ -1,0 +1,45 @@
+body {
+	-webkit-font-smoothing: antialiased;
+	font-family: Georgia, Times, serif;
+	font-size: 100%;
+	line-height: 1.6;
+	color: black;
+}
+
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+	font-family: "Avant Garde", sans-serif;
+	font-weight: normal;
+	line-height: 1.2;
+	-webkit-font-smoothing: antialiased;
+	margin: 0;
+}
+h1, .h1 {
+	font-size: 40px;
+	text-indent: -1px;
+
+	@include media-query(md) {
+		font-size: 60px;
+		text-indent: -2px;
+	}
+}
+h2, .h2 {
+	font-size: 30px;
+}
+h3, .h3 {
+	font-size: 24px;
+}
+h4, .h4 {
+	font-size: 14px;
+	line-height: 1.4;
+	text-transform: uppercase;
+}
+p {
+	margin-bottom: 1.6em;
+	margin-top: 0px;
+}
+
+a {
+	color: darkblue;
+}
