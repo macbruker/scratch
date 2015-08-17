@@ -1,1 +1,1 @@
-A quick starter kit for new projects.
+My starter kit for new projects.
