@@ -12,6 +12,7 @@
 
 // Layout
 @import "layout/grid",
+        "layout/blockgrid",
         "layout/width",
         "layout/section",
         "layout/header",
@@ -24,3 +25,24 @@
 @import "modules/media";
 
 
+.section {
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+}
+.section > h2 {
+	margin-top: 2rem;
+}
+.section > h3 {
+	margin-top: 2rem;
+}
+.section > h + .media {
+	margin-top: 2rem;
+}
+ins {
+	background-color: lightblue;
+	display: block;
+	margin-top: 1rem;
+	text-decoration: none;
+	text-align: center;
+	line-height: 3rem;
+}

@@ -22,8 +22,10 @@ ul, ol, dl {
 }
 hr {
 	border: none;
-	height: 2px;
-	background-color: white;
+	height: 1px;
+	border: 0;
+	border-bottom: 1px dotted silver;
+	margin: 2rem 0;
 }
 
 

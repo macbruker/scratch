@@ -4,10 +4,11 @@
 
 // Float
 .row {
+	@extend %clearfix;
 	max-width: $site-width;
-	margin: auto -($grid-gutter / 2);
-	list-style: none;
+	margin: auto (($grid-gutter / 2) * -1);
 	padding: 0;
+	list-style: none;
 }
 .col {
 	padding-left: ($grid-gutter / 2);
@@ -20,14 +21,48 @@
 
 // Inline-Block
 .row--inline {
-	display: inline-block;
 	letter-spacing: -0.31em !important;
-	word-spacing: -0.43em !important;
 }
 .row--inline > .col {
+	display: inline-block;
+	vertical-align: top;
 	letter-spacing: normal;
-	word-spacing: normal;
+	float: none;
 }
+
+
+
+
+// Inline-Block Center
+.row--inline-center {
+	letter-spacing: -0.31em !important;
+	text-align: center;
+}
+.row--inline-center > .col {
+	display: inline-block;
+	vertical-align: top;
+	letter-spacing: normal;
+	float: none;
+	text-align: left;
+}
+
+
+
+
+// Inline-Block Reverse
+.row--inline-reverse {
+	letter-spacing: -0.31em !important;
+	text-align: center;
+	direction: rtl;
+}
+.row--inline-reverse > .col {
+	display: inline-block;
+	vertical-align: top;
+	letter-spacing: normal;
+	float: none;
+	direction: ltr;
+}
+
 
 
 
@@ -36,21 +71,15 @@
 	display: inline-block;
 	display: flex;
 	letter-spacing: -0.31em !important;
-	word-spacing: -0.43em !important;
 }
 .row--flex > .col {
 	letter-spacing: normal;
-	word-spacing: normal;
 	flex: 1 1 auto;
 }
 
 
-.col {
-	outline: 1px solid black;
-}
 
-
-
+// No padding
 
 .row--flush {
 	margin: auto 0;
