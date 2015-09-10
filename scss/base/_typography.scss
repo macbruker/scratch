@@ -1,46 +1,161 @@
 body {
-	-webkit-font-smoothing: antialiased;
-	font-family: Georgia, serif;
-	font-size: 100%;
-	line-height: 1.6;
-	color: black;
+    -webkit-font-smoothing: antialiased;
+    font-family: Georgia, serif;
+    font-size: 100%;
+    line-height: 1.6;
+    color: black;
+
+    @include media-query(xl) {
+        font-size: 110%;
+    }
 }
 
+
+
+// Paragraphs
+
+p {
+    margin-bottom: 1.6em;
+    margin-top: 0;
+}
+
+p > a {
+    color: darkblue;
+}
+
+
+// Headings
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-	font-family: Arial, sans-serif;
-	line-height: 1.2;
-	-webkit-font-smoothing: antialiased;
-	margin: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.2;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
 }
 h1, .h1 {
-	font-size: 1.5em;
+    font-size: 1.75em;
 
-	@include media-query(md) {
-		font-size: 3em;
-	}
+    @include media-query(md) {
+        font-size: 3em;
+    }
 }
 h2, .h2 {
-	font-size: 1.25em;
+    font-size: 1.25em;
 
-	@include media-query(md) {
-		font-size: 1.5em;
-	}
+    @include media-query(md) {
+        font-size: 1.5em;
+    }
 }
 h3, .h3 {
-	font-size: 1em;
+    font-size: 1em;
 }
 h4, .h4 {
-	font-size: 0.875em;
-	line-height: 1.4;
-	text-transform: uppercase;
+    font-size: 0.9375em;
+    line-height: 1.4;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
 }
-p {
-	margin-bottom: 1.6em;
-	margin-top: 0;
+h2 + h3 {
+    margin-top: 1.6em;
 }
 
-a {
-	color: darkblue;
+
+// Headings + Paragraphs
+
+h1 + p {
+    margin-top: 1.6em;
+}
+h2 + p,
+h3 + p,
+h4 + p {
+    margin-top: 0.4em;
+}
+
+
+
+
+// Lists
+
+ol, ul, dl {
+    font-family: Arial, sans-serif;
+}
+dl {
+    padding-left: 0;
+    margin-bottom: 1.6em;
+}
+dl > dt {
+    font-weight: bold;
+}
+dl > dd {
+    margin-left: 0;
+}
+dl > dd + dt {
+    margin-top: 0.8em;
+    border-top: 1px dotted silver;
+    padding-top: 0.8em;
+}
+
+
+
+
+// Table
+
+table {
+    width: 100%;
+    table-layout: auto;
+    text-align: left;
+    border-spacing: 0;
+    font-family: Arial, sans-serif;
+    margin-bottom: 1.6em;
+}
+table > caption {
+    text-align: left;
+    margin-bottom: 0.8em;
+}
+th, td {
+    border-bottom: 1px solid rgba(70, 130, 180, 0.4);
+    padding: 0.25em;
+}
+th + th,
+th + td,
+td + td {
+    border-bottom: 1px solid rgba(70, 130, 180, 0.4);
+    border-left: 1px solid rgba(70, 130, 180, 0.4);
+}
+thead > tr > th,
+thead > tr > td {
+    border-top: 1px solid rgba(70, 130, 180, 0.4);
+    background-color: lightblue;
+}
+tbody > tr:nth-child(odd) > th,
+tbody > tr:nth-child(odd) > td {
+    background-color: rgba(173, 216, 230, 0.2);
+}
+tbody > tr:first-child > th,
+tbody > tr:first-child > td {
+    border-top-color: rgba(70, 130, 180, 0.5);
+}
+
+
+
+// Code
+
+pre {
+    font-size: 1.125em;
+}
+
+
+
+// Quote
+
+blockquote {
+    margin-left: 0;
+    margin-bottom: 1.6em;
+}
+blockquote > p {
+
+}
+blockquote > footer {
+    margin-top: -1em;
 }

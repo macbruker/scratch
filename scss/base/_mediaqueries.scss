@@ -14,17 +14,17 @@ $breakpoints: (
 
 
 // Make the breakpoints
-@mixin media-query($breakpoint, $direction: 'min') {
+@mixin media-query($breakpoint, $direction: null) {
 
 	$value: map-get($breakpoints, $breakpoint);
 
 	@if $value != null {
-		@if $direction == 'min' {
-			@media (min-width: #{$value}rem) {
+		@if $direction == null {
+			@media (min-width: #{$value}) {
 				@content;
 			}
-		} @elseif $direction == 'max' {
-			@media (max-width: #{$value}rem) {
+		} @elseif $direction != null {
+			@media (max-width: #{$value}) {
 				@content;
 			}
 		} @else {

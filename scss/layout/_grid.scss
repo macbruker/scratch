@@ -1,5 +1,5 @@
-// Grid + Width = ♥
-// ====================================
+// Grid - Float, Inline-Block and Flex
+// ===================================
 
 
 // Float
@@ -76,7 +76,22 @@
 	letter-spacing: normal;
 	flex: 1 1 auto;
 }
-
+.row--flex > [class^="col--"],
+.row--flex > [class*=" col--"] {
+    flex: 0 0 auto;
+}
+.row--flex-wrap {
+    flex-flow: row wrap;
+}
+.row--flex-start {
+	justify-content: flex-start;
+}
+.row--flex-end {
+	justify-content: flex-end;
+}
+.row--flex-center {
+	justify-content: center;
+}
 
 
 // No padding
@@ -87,4 +102,56 @@
 .row--flush > .col {
 	padding-left: 0;
 	padding-right: 0;
+}
+
+
+
+
+
+
+
+
+$widths: (
+	1,
+	2,
+	3,
+	4,
+	5
+) !default;
+
+
+@mixin width($widths, $breakpoint: null) {
+	@each $d in $widths {
+		@if ($d == 1) {
+			.col--1\/1#{$breakpoint} {
+				width: 100% !important;
+			}
+		} @else {
+			@for $n from 1 to $d {
+				.col--#{$n}\/#{$d}#{$breakpoint} {
+					width: calc(#{$n}/#{$d} * 100%);
+				}
+			}
+		}
+	}
+}
+
+// This mixin generates classes like this '.w-1/2'
+
+@include width($widths);
+
+
+
+
+// Responsive
+
+@each $breakpoint in $breakpoints {
+	$mq: nth($breakpoint, 1);
+
+	// This mixin generates classes like this '.w-1/2@md'
+	@include media-query($mq) {
+		@each $width in $widths {
+			@include width($widths, \@#{$mq});
+		}
+	}
 }

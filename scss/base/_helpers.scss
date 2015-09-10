@@ -43,16 +43,18 @@
 // Media Queries Helper
 
 .mq {
-	background-color: deeppink;
+	background-color: rgba(silver, 0.8);
 	font-family: sans-serif;
 	font-weight: bold;
 	z-index: 99;
 	position: fixed;
-	padding: 4px 6px 2px 6px;
-	border-radius: 2px 0 0 0;
-	color: darkblue;
-	bottom: 0;
-	right: 0;
+	padding: 4px 6px;
+	border-radius: 0 0 2px 2px;
+	color: rgba(black, 0.8);
+	pointer-events: none;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
 	letter-spacing: 0.05em;
 	font-size: 10px;
 
