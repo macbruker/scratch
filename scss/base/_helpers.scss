@@ -13,7 +13,13 @@
     clear: both;
   }
 }
-
+%clearfix-reset {
+    &:after {
+        content: none;
+        display: none;
+        clear: none;
+    }
+}
 
 
 
@@ -36,7 +42,9 @@
 
 
 
-
+[aria-hidden="true"] {
+    display: none;
+}
 
 
 

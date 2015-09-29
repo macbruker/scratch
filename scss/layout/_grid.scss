@@ -4,30 +4,30 @@
 
 // Float
 .row {
-	@extend %clearfix;
-	max-width: $site-width;
-	margin: auto (($grid-gutter / 2) * -1);
-	padding: 0;
-	list-style: none;
+    @extend %clearfix;
+    max-width: $site-width;
+    margin: auto (($grid-gutter / 2) * -1);
+    padding: 0;
+    list-style: none;
 }
 .col {
-	padding-left: ($grid-gutter / 2);
-	padding-right: ($grid-gutter / 2);
-	width: 100%;
-	float: left;
+    padding-left: ($grid-gutter / 2);
+    padding-right: ($grid-gutter / 2);
+    width: 100%;
+    float: left;
 }
 
 
 
 // Inline-Block
 .row--inline {
-	letter-spacing: -0.31em !important;
+    letter-spacing: -0.31em !important;
 }
 .row--inline > .col {
-	display: inline-block;
-	vertical-align: top;
-	letter-spacing: normal;
-	float: none;
+    display: inline-block;
+    vertical-align: top;
+    letter-spacing: normal;
+    float: none;
 }
 
 
@@ -35,15 +35,15 @@
 
 // Inline-Block Center
 .row--inline-center {
-	letter-spacing: -0.31em !important;
-	text-align: center;
+    letter-spacing: -0.31em !important;
+    text-align: center;
 }
 .row--inline-center > .col {
-	display: inline-block;
-	vertical-align: top;
-	letter-spacing: normal;
-	float: none;
-	text-align: left;
+    display: inline-block;
+    vertical-align: top;
+    letter-spacing: normal;
+    float: none;
+    text-align: left;
 }
 
 
@@ -51,16 +51,16 @@
 
 // Inline-Block Reverse
 .row--inline-reverse {
-	letter-spacing: -0.31em !important;
-	text-align: center;
-	direction: rtl;
+    letter-spacing: -0.31em !important;
+    text-align: center;
+    direction: rtl;
 }
 .row--inline-reverse > .col {
-	display: inline-block;
-	vertical-align: top;
-	letter-spacing: normal;
-	float: none;
-	direction: ltr;
+    display: inline-block;
+    vertical-align: top;
+    letter-spacing: normal;
+    float: none;
+    direction: ltr;
 }
 
 
@@ -68,40 +68,53 @@
 
 // Flex
 .row--flex {
-	display: inline-block;
-	display: flex;
-	letter-spacing: -0.31em !important;
+    display: inline-block;
+    display: flex;
+    flex-flow: row wrap;
+    letter-spacing: -0.31em !important;
 }
 .row--flex > .col {
-	letter-spacing: normal;
-	flex: 1 1 auto;
+    letter-spacing: normal;
+    flex: 1 0 auto;
+    width: auto;
 }
 .row--flex > [class^="col--"],
 .row--flex > [class*=" col--"] {
     flex: 0 0 auto;
 }
-.row--flex-wrap {
-    flex-flow: row wrap;
-}
 .row--flex-start {
-	justify-content: flex-start;
+    justify-content: flex-start;
 }
 .row--flex-end {
-	justify-content: flex-end;
+    justify-content: flex-end;
 }
 .row--flex-center {
-	justify-content: center;
+    justify-content: center;
+}
+.row--flex-nowrap {
+    flex-flow: row nowrap;
+}
+@each $breakpoint in $breakpoints {
+    $mq: nth($breakpoint, 1);
+
+    .row--flex-nowrap\@#{$mq} {
+        @include media-query($mq) {
+            flex-flow: row nowrap;
+        }
+    }
+
+
 }
 
 
 // No padding
 
 .row--flush {
-	margin: auto 0;
+    margin: auto 0;
 }
 .row--flush > .col {
-	padding-left: 0;
-	padding-right: 0;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 
@@ -112,28 +125,28 @@
 
 
 $widths: (
-	1,
-	2,
-	3,
-	4,
-	5
+    1,
+    2,
+    3,
+    4,
+    5
 ) !default;
 
 
 @mixin width($widths, $breakpoint: null) {
-	@each $d in $widths {
-		@if ($d == 1) {
-			.col--1\/1#{$breakpoint} {
-				width: 100% !important;
-			}
-		} @else {
-			@for $n from 1 to $d {
-				.col--#{$n}\/#{$d}#{$breakpoint} {
-					width: calc(#{$n}/#{$d} * 100%);
-				}
-			}
-		}
-	}
+    @each $d in $widths {
+        @if ($d == 1) {
+            .col--1\/1#{$breakpoint} {
+                width: 100% !important;
+            }
+        } @else {
+            @for $n from 1 to $d {
+                .col--#{$n}\/#{$d}#{$breakpoint} {
+                    width: calc(#{$n}/#{$d} * 100%) !important;
+                }
+            }
+        }
+    }
 }
 
 // This mixin generates classes like this '.w-1/2'
@@ -146,12 +159,12 @@ $widths: (
 // Responsive
 
 @each $breakpoint in $breakpoints {
-	$mq: nth($breakpoint, 1);
+    $mq: nth($breakpoint, 1);
 
-	// This mixin generates classes like this '.w-1/2@md'
-	@include media-query($mq) {
-		@each $width in $widths {
-			@include width($widths, \@#{$mq});
-		}
-	}
+    // This mixin generates classes like this '.w-1/2@md'
+    @include media-query($mq) {
+        @each $width in $widths {
+            @include width($widths, \@#{$mq});
+        }
+    }
 }

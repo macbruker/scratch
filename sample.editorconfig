@@ -5,24 +5,22 @@ root = true
 
 
 # Unix-style newlines with a newline ending every file
-[*]
-end_of_line = lf
-insert_final_newline = true
-
-
-
 # Remove trailing whitespace
 [*]
 charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+indent_style = space
 trim_trailing_whitespace = true
 
 
 
-# Two space indentation
-[*.html]
-indent_style = tab
+# Four space indentation
+[*.{html, scss, css, js}]
 indent_size = 4
 
+
+# Two space indentation
 [_content/**.html]
 indent_style = space
 indent_size = 2
@@ -37,11 +35,3 @@ indent_size = 2
 
 
 
-# Tab indentation (no size specified)
-[*.scss]
-indent_style = tab
-tab_width = 4
-
-[*.js]
-indent_style = tab
-tab_width = 4
