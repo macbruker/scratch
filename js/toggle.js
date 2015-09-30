@@ -5,13 +5,13 @@
 
 // <a href="#test1"
 //    data-toggle='{ "element":".class" }'
-//    data-controls='test1'
+//    data-controls='#test1'
 //    data-state='open'>
 //    Toggle 1
 // </a>
 // <a href="#test2"
 //    data-toggle='{ "element":".class", another-element:".another-class" }'
-//    data-controls='test2'
+//    data-controls='#test2'
 //    data-state='open'>
 //    Toggle 2
 // </a>
@@ -28,8 +28,8 @@ jQuery(function($) {
     $('[data-toggle]').each(function() {
 
         var trigger = $(this),
-            target  = $('#' + trigger.attr('data-controls')),
-            state   = trigger.attr('data-state'),
+            target  = $(trigger.data('controls')),
+            state   = trigger.data('state'),
             obj     = $(this).data('toggle');
 
 
