@@ -4,15 +4,15 @@
 
 
 // <a href="#test1"
-//    data-behaviour="toggle"
-//    data-controls="test1"
-//    data-state="open">
+//    data-toggle='{ "element":".class" }'
+//    data-controls='test1'
+//    data-state='open'>
 //    Toggle 1
 // </a>
 // <a href="#test2"
-//    data-behaviour="toggle"
-//    data-controls="test2"
-//    data-state="open">
+//    data-toggle='{ "element":".class", another-element:".another-class" }'
+//    data-controls='test2'
+//    data-state='open'>
 //    Toggle 2
 // </a>
 
@@ -25,11 +25,13 @@
 
 jQuery(function($) {
 
-    $('[data-behaviour="toggle"]').each(function() {
+    $('[data-toggle]').each(function() {
 
         var trigger = $(this),
             target  = $('#' + trigger.attr('data-controls')),
-            state   = trigger.attr('data-state');
+            state   = trigger.attr('data-state'),
+            obj     = $(this).data('toggle');
+
 
         trigger.attr({
             'role' : 'button',
@@ -48,20 +50,30 @@ jQuery(function($) {
         var openToggle = function() {
             trigger.attr({
                 'aria-expanded' : true,
-                'data-state' : 'open',
-                'class' : 'is-open'
+                'data-state' : 'open'
             });
             target.removeAttr('aria-hidden');
+
+            if(obj !== '') {
+                $.each( obj, function(key, val) {
+                    $(key).addClass(val.replace(/\./g, ''));
+                });
+            }
         }
 
         // Close
         var closeToggle = function() {
             trigger.attr({
                 'aria-expanded' : false,
-                'data-state' : 'closed',
-                'class' : 'is-closed'
+                'data-state' : 'closed'
             });
             target.attr('aria-hidden', 'true');
+
+            if(obj !== '') {
+                $.each( obj, function(key, val) {
+                    $(key).removeClass(val.replace(/\./g, ''));
+                });
+            }
         }
 
         // Set Attributes
