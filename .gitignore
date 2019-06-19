@@ -1,26 +1,5 @@
-
-
-# NPM
 node_modules/
-
-
-# Bower
-bower_components/
-
-
-# Sublime Text
-*.sublime-project
-*.sublime-workspace
-
-
-# Statamic
-_cache/*
-!_cache/index.html
-_logs/*
-!_logs/index.html
-
-
-# Mac OS
+npm-debug.log
 .DS_Store
 .DS_Store?
 ._*
@@ -28,3 +7,4 @@ _logs/*
 .Trashes
 ehthumbs.db
 Thumbs.db
+dist

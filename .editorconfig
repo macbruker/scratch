@@ -1,37 +1,11 @@
 # EditorConfig is awesome: http://EditorConfig.org
 
-# Top-most EditorConfig file
 root = true
 
-
-# Unix-style newlines with a newline ending every file
-# Remove trailing whitespace
 [*]
 charset = utf-8
 end_of_line = lf
 insert_final_newline = true
 indent_style = space
+indent_size = 2
 trim_trailing_whitespace = true
-
-
-
-# Four space indentation
-[*.{html, scss, css, js}]
-indent_size = 4
-
-
-# Two space indentation
-[_content/**.html]
-indent_style = space
-indent_size = 2
-
-[_content/**.md]
-indent_style = space
-indent_size = 2
-
-[*.yaml]
-indent_style = space
-indent_size = 2
-
-
-
