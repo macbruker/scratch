@@ -1,19 +1,27 @@
-module.exports = function(config) {
+const compress = require('compression');
 
-  // config.addCollection('posts', collection => {
-  //   return collection.getFilteredByGlob('**/posts/*.md').reverse()
-  // })
+module.exports = function(eleventyConfig) {
+  eleventyConfig.addPassthroughCopy({ "./node_modules/alpinejs/dist/cdn.min.js": "./main.min.js" });
+  eleventyConfig.addPassthroughCopy("./static/images/*");
+  eleventyConfig.addPassthroughCopy("./static/fonts/*");
+  eleventyConfig.addWatchTarget("./src/main.css");
+  eleventyConfig.setDataDeepMerge(true);
+  eleventyConfig.setBrowserSyncConfig({
+    server: {
+      baseDir: './dist',
+      middleware: function(req,res,next){
+        const gzip = compress();
+        gzip(req,res,next);
+      }
+    }
+  });
 
   return {
     dir: {
-      input: 'src',
-      includes: '_includes',
-      layouts: '_layouts',
-      data: 'data',
-      output: 'dist'
-    },
-    markdownTemplateEngine: 'njk',
-    htmlTemplateEngine: 'njk',
-    dataTemplateEngine: 'njk'
+      input: "src",
+      data: "_data",
+      includes: "_includes",
+      output: "dist",
+    }
   }
 }
