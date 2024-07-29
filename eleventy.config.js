@@ -1,5 +1,5 @@
 const markdownIt = require('markdown-it')
-const htmlmin = require('html-minifier')
+const htmlmin = require('html-minifier-terser')
 const compression = require('compression')
 
 module.exports = function (eleventyConfig) {
