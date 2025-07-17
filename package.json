@@ -16,7 +16,7 @@
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1",
     "autoprefixer": "^10.4.19",
-    "compression": "^1.7.4",
+    "compression": "^1.8.1",
     "concurrently": "^8.2.2",
     "cssnano": "^7.0.4",
     "html-minifier-terser": "^7.2.0",
