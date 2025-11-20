@@ -1,3 +1,3 @@
-module.exports = {
-  title: 'Scratch'
+export default {
+  title: 'Scratch',
 }
