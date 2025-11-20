@@ -1,3 +1,3 @@
 # Scratch
 
-A small starter with Eleventy and Tailwind CSS
+A small starter with Eleventy
