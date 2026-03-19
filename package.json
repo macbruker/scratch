@@ -12,12 +12,12 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@11ty/eleventy": "^3.1.2",
-    "alpinejs": "^3.15.2",
-    "autoprefixer": "^10.4.22",
+    "@11ty/eleventy": "^3.1.5",
+    "alpinejs": "^3.15.8",
+    "autoprefixer": "^10.4.27",
     "compression": "^1.8.1",
     "html-minifier-terser": "^7.2.0",
-    "lightningcss": "^1.30.2"
+    "lightningcss": "^1.32.0"
   },
   "type": "module"
 }
