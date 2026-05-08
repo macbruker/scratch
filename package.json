@@ -8,16 +8,16 @@
     "url": "https://github.com/macbruker/scratch"
   },
   "scripts": {
-    "dev": "eleventy --config=eleventy.config.js --serve"
+    "dev": "pnpm exec eleventy --config=eleventy.config.js --serve"
   },
   "license": "MIT",
   "devDependencies": {
     "@11ty/eleventy": "^3.1.5",
-    "alpinejs": "^3.15.8",
-    "autoprefixer": "^10.4.27",
+    "alpinejs": "^3.15.12",
     "compression": "^1.8.1",
     "html-minifier-terser": "^7.2.0",
     "lightningcss": "^1.32.0"
   },
-  "type": "module"
+  "type": "module",
+  "packageManager": "pnpm@11.0.8+sha512.4c4097e1dd2d42372c4e7fa5a791ff28fc75a484c7ac192e64b1df0fdef17594ba982f9b4fed9adfb3c757846f565b799b2763fb3733d1de1bcb82cf46684912"
 }
