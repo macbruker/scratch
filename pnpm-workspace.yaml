@@ -1,0 +1,7 @@
+minimumReleaseAgeExclude:
+  - '@11ty/chokidar-with-glob-support@1.1.0'
+  - '@11ty/eleventy-dev-server@2.1.2'
+  - '@11ty/eleventy@3.1.7'
+  - '@11ty/nunjucks@3.3.0'
+  - argparse@3.0.3
+  - markdown-it@15.0.3
